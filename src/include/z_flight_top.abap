@@ -30,3 +30,23 @@ TYPES: BEGIN OF ty_flight,
 *-------------------------------------------------------------*
 DATA: gt_flight TYPE TABLE OF ty_flight, " Internal table for flight list
       gs_flight TYPE ty_flight.          " Work area for single flight
+
+*-------------------------------------------------------------*
+* ALV Grid Related Declarations
+*-------------------------------------------------------------*
+DATA: gt_fcat1    TYPE lvc_t_fcat,          " ALV Field catalog table
+      gs_fcat1    LIKE LINE OF gt_fcat1,    " Field catalog work area
+      gs_layout1  TYPE lvc_s_layo,          " ALV layout settings
+      gs_variant1 TYPE disvariant.          " ALV display variant
+
+DATA: custom1     TYPE REF TO cl_gui_custom_container, " ALV container (custom control)
+      grid1       TYPE REF TO cl_gui_alv_grid.         " ALV grid instance
+
+*-------------------------------------------------------------*
+* Selection and Interaction Handling
+*-------------------------------------------------------------*
+DATA: gv_selindex TYPE i,              " Selected index from ALV
+      gs_selrow   TYPE ty_flight.      " Data of selected row
+
+DATA: gt_fcode    TYPE TABLE OF sy-ucomm, " Table of function codes (e.g. buttons)
+      gs_fcode    LIKE LINE OF gt_fcode.  " Work area for single function code
