@@ -2,7 +2,7 @@ FORM get_data.
   DATA: lv_where TYPE string.
 
   IF p_carrid IS NOT INITIAL.
-   lv_where = 'AND a~carrid = @p_carrid'.
+   lv_where = 'a~carrid = @p_carrid'.
   ENDIF.
 
   SELECT a~carrid, b~carrname, b~currcode,
